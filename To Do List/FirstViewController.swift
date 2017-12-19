@@ -2,16 +2,16 @@
 //  FirstViewController.swift
 //  To Do List
 //
-//  Created by Rob Percival on 17/06/2016.
-//  Copyright © 2016 Appfish. All rights reserved.
+//  Created by Joann Kuo on 12/06/2016.
+//  Copyright © 2016 Joann Kuo. All rights reserved.
 //
 
 import UIKit
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     @IBOutlet var table: UITableView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
     var items: [String] = []
 
@@ -34,17 +34,39 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         label.text = items[indexPath.row]
         label.numberOfLines = 0
         
-        
         return cell
-        
         
     }
     
+    //Allows reordering of cells
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = items[sourceIndexPath.row]
+        items.remove(at: sourceIndexPath.row)
+        items.insert(item, at: destinationIndexPath.row)
+    }
+    
+    
+    @IBAction func edit(_ sender: Any) {
+        
+        table.isEditing = !table.isEditing
+        
+        switch table.isEditing {
+        case true:
+            editButton.title = "Done"
+        case false:
+            editButton.title = "Move"
+            
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -78,7 +100,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
     }
-  
+    
+
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

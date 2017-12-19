@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CdT-3i-vNN">
-                                <rect key="frame" x="0.0" y="28" width="320" height="491"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" red="0.2221507764" green="0.3208666557" blue="0.48172360749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.2221507764" green="0.3208666557" blue="0.48172360749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.2221507764" green="0.3208666557" blue="0.48172360749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,25 +51,46 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="0cU-HJ-JyA"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3h8-sB-F1E">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iOL-vU-jwW"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Items" id="6FO-kA-4Ph">
+                                        <barButtonItem key="rightBarButtonItem" title="Move" id="RkW-4Z-yQL">
+                                            <connections>
+                                                <action selector="edit:" destination="9pv-A4-QxB" id="AZY-70-hpg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.2221507764" green="0.3208666557" blue="0.48172360749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CdT-3i-vNN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="88y-Tk-SlI"/>
+                            <constraint firstAttribute="trailing" secondItem="3h8-sB-F1E" secondAttribute="trailing" id="09O-Q0-pvZ"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="CdT-3i-vNN" secondAttribute="bottom" id="Rq1-hN-gPm"/>
                             <constraint firstAttribute="trailing" secondItem="CdT-3i-vNN" secondAttribute="trailing" id="THp-Zq-Mqv"/>
-                            <constraint firstItem="CdT-3i-vNN" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="iVP-Kf-gQa"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="CdT-3i-vNN" secondAttribute="bottom" id="WvZ-fr-4Y8"/>
+                            <constraint firstItem="CdT-3i-vNN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Ynk-Ol-rh6"/>
+                            <constraint firstItem="3h8-sB-F1E" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="bdr-bU-n9d"/>
+                            <constraint firstItem="CdT-3i-vNN" firstAttribute="top" secondItem="3h8-sB-F1E" secondAttribute="bottom" id="eA1-9G-OZT"/>
+                            <constraint firstAttribute="trailing" secondItem="CdT-3i-vNN" secondAttribute="trailing" id="h3e-hG-DeH"/>
+                            <constraint firstItem="3h8-sB-F1E" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="tvU-EO-MZz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="To Do List" image="first" id="acW-dT-cKf">
                         <color key="badgeColor" red="0.2221507764" green="0.3208666557" blue="0.48172360749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="editButton" destination="RkW-4Z-yQL" id="5je-0Y-bhL"/>
                         <outlet property="table" destination="CdT-3i-vNN" id="rqK-xx-6m0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="748.125" y="-321.12676056338029"/>
         </scene>
         <!--Add an item-->
         <scene sceneID="wg7-f3-ORb">

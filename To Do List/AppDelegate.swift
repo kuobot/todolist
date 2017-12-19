@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  To Do List
 //
-//  Created by Rob Percival on 17/06/2016.
+//  Created by Joann Kuo on 12/06/2016.
 //  Copyright © 2016 Appfish. All rights reserved.
 //
 
